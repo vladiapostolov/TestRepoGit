@@ -1,0 +1,28 @@
+# Ignore Python artifacts
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore virtual environments
+venv
+env
+
+# Git
+.git
+
+# Editor directories
+.vscode
+.idea
+
+# Docker
+Dockerfile.dev
+
+# Wheels / build artifacts
+wheels
+build
+dist
+
+# Local config
+.env
+.env.*

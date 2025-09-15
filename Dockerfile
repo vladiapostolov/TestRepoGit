@@ -32,8 +32,8 @@ COPY --from=deps /wheels /wheels
 RUN pip install --no-cache-dir /wheels/* \
  && rm -rf /wheels
 
-# Copy application code (ensure the `app/` directory exists in build context)
-COPY --chown=app:app app/ /app/
+# Copy application code (copy the repository into /app so the `app` package lives at /app/app)
+COPY --chown=app:app . /app/
 
 USER app
 EXPOSE 8080

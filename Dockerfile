@@ -22,6 +22,11 @@ FROM base AS runtime
 # Create a non-root user and ensure permissions for /app
 RUN useradd -m app && chown -R app:app /app
 
+# Create data directory and set ownership so the app can write the SQLite file
+RUN mkdir -p /data && chown -R app:app /data
+
+ENV DB_PATH=/data/app.db
+
 # Copy wheels from the deps stage and install them
 COPY --from=deps /wheels /wheels
 RUN pip install --no-cache-dir /wheels/* \

@@ -38,4 +38,5 @@ COPY --chown=app:app app/ /app/
 USER app
 EXPOSE 8080
 ENV PORT=8080
-ENTRYPOINT ["uvicorn","main:app","--host","0.0.0.0","--port","8080"]
+ENTRYPOINT ["uvicorn"]
+CMD ["app.main:app", "--host", "0.0.0.0", "--port", "8080"]
